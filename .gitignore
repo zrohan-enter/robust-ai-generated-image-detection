@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Kaggle / large data
+data/
+dataset/
+datasets/
+input/
+kaggle/input/
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Model checkpoints
+*.pth
+*.pt
+*.ckpt
+*.onnx
+*.h5
+*.pkl
+*.joblib
+
+# Large generated outputs
+*.mp4
+*.avi
+*.mov
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Secrets
+.env
+kaggle.json
+
+# Temporary files
+tmp/
+temp/
+.cache/

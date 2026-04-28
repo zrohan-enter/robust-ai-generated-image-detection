@@ -1,0 +1,5 @@
+Category,Count
+Correct Real,332
+Correct Fake,364
+False Positive: Real Predicted Fake,68
+False Negative: Fake Predicted Real,36

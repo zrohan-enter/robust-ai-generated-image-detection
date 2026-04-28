@@ -1,0 +1,2 @@
+model,input_type,best_val_accuracy,test_accuracy,test_precision,test_recall,test_f1_score,test_loss,epochs,training_time_minutes
+ResNet18_RGB_Baseline,RGB,0.8875,0.87,0.8425925925925926,0.91,0.875,0.3313499015569687,5,14.070648622512817
