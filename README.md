@@ -1,258 +1,129 @@
-\# Robust AI-Generated Image Detection using Hybrid Spatial–Frequency Analysis
+# Robust AI-Generated Image Detection using Hybrid Spatial–Frequency Analysis
 
+## CSE 445: Machine Learning Project
 
+**Student:** Zawed Bin Tariq  
+**Student ID:** 2232811642  
+**Instructor:** Dr. Mohammad Abdul Qayum  
+**Institution:** North South University  
 
-\## CSE 445: Machine Learning Project
+---
 
-
-
-\*\*Student:\*\* Zawed Bin Tariq  
-
-\*\*Student ID:\*\* 2232811642  
-
-\*\*Instructor:\*\* Dr. Mohammad Abdul Qayum  
-
-\*\*Institution:\*\* North South University  
-
-
-
-\---
-
-
-
-\## Project Overview
-
-
+## Project Overview
 
 This project investigates AI-generated image detection using spatial-domain, frequency-domain, and hybrid spatial–frequency approaches.
 
-
-
 The task is a supervised binary image classification problem:
 
-
-
-\- `0` = Real image
-
-\- `1` = AI-generated / Fake image
-
-
+- `0` = Real image
+- `1` = AI-generated / Fake image
 
 The project compares RGB image features, FFT magnitude spectrum features, and hybrid fusion architectures inspired by recent frequency-aware AI-generated image detection research.
 
+---
 
-
-\---
-
-
-
-\## Dataset
-
-
+## Dataset
 
 The project uses the Kaggle dataset:
 
-
-
-\*\*AI-generated images vs real images\*\*
-
-
+**AI-generated images vs real images**
 
 The full dataset contains approximately:
 
-
-
-\- 30,000 real images
-
-\- 30,000 AI-generated images
-
-
+- 30,000 real images
+- 30,000 AI-generated images
 
 For computational efficiency, a balanced subset was used:
 
-
-
 | Class | Images |
-
 |---|---:|
-
 | Real | 2000 |
-
 | AI-generated / Fake | 2000 |
-
 | Total | 4000 |
-
-
 
 Dataset split:
 
-
-
 | Split | Real | Fake | Total |
-
 |---|---:|---:|---:|
-
 | Training | 1200 | 1200 | 2400 |
-
 | Validation | 400 | 400 | 800 |
-
 | Testing | 400 | 400 | 800 |
 
+---
 
-
-\---
-
-
-
-\## Experiments
-
-
+## Experiments
 
 The project includes seven notebooks:
 
-
-
 | Notebook | Description |
-
 |---|---|
+| `01_dataset_preparation_eda_fft.ipynb` | Dataset preparation, EDA, FFT sanity check |
+| `02_spatial_rgb_baseline_resnet18.ipynb` | RGB ResNet18 spatial baseline |
+| `03_frequency_domain_fft_resnet18.ipynb` | FFT magnitude ResNet18 frequency baseline |
+| `04_hybrid_rgb_fft_fusion_model.ipynb` | Hybrid RGB + FFT fusion model |
+| `05_hybrid_rgb_fft_radial_energy_fusion.ipynb` | RGB + FFT + radial energy fusion model |
+| `06_final_model_comparison_ablation_study.ipynb` | Final comparison and ablation study |
+| `07_explainability_error_analysis_report_figures.ipynb` | Error analysis and Grad-CAM explainability |
 
-| `01\_dataset\_preparation\_eda\_fft.ipynb` | Dataset preparation, EDA, FFT sanity check |
+---
 
-| `02\_spatial\_rgb\_baseline\_resnet18.ipynb` | RGB ResNet18 spatial baseline |
-
-| `03\_frequency\_domain\_fft\_resnet18.ipynb` | FFT magnitude ResNet18 frequency baseline |
-
-| `04\_hybrid\_rgb\_fft\_fusion\_model.ipynb` | Hybrid RGB + FFT fusion model |
-
-| `05\_hybrid\_rgb\_fft\_radial\_energy\_fusion.ipynb` | RGB + FFT + radial energy fusion model |
-
-| `06\_final\_model\_comparison\_ablation\_study.ipynb` | Final comparison and ablation study |
-
-| `07\_explainability\_error\_analysis\_report\_figures.ipynb` | Error analysis and Grad-CAM explainability |
-
-
-
-\---
-
-
-
-\## Final Results
-
-
+## Final Results
 
 | Model | Input Type | Test Accuracy | Precision | Recall | F1-score |
-
 |---|---|---:|---:|---:|---:|
-
 | ResNet18 RGB Baseline | RGB | 87.00% | 84.26% | 91.00% | 87.50% |
-
 | ResNet18 FFT Baseline | FFT Magnitude | 65.00% | 63.22% | 71.75% | 67.21% |
-
 | Hybrid RGB-FFT Fusion | RGB + FFT | 84.25% | 83.25% | 85.75% | 84.48% |
-
 | Hybrid RGB-FFT-Radial Fusion | RGB + FFT + Radial Energy | 86.88% | 91.55% | 81.25% | 86.09% |
 
+---
 
+## Key Findings
 
-\---
+1. The RGB ResNet18 baseline achieved the best overall test accuracy and F1-score.
+2. The FFT-only model overfit heavily and performed poorly compared with RGB.
+3. The hybrid RGB-FFT model recovered strong performance but did not outperform RGB alone.
+4. The RGB-FFT-Radial model achieved the highest precision and nearly matched RGB accuracy.
+5. Frequency-domain features are useful as complementary evidence but require careful fusion.
 
+---
 
-
-\## Key Findings
-
-
-
-1\. The RGB ResNet18 baseline achieved the best overall test accuracy and F1-score.
-
-2\. The FFT-only model overfit heavily and performed poorly compared with RGB.
-
-3\. The hybrid RGB-FFT model recovered strong performance but did not outperform RGB alone.
-
-4\. The RGB-FFT-Radial model achieved the highest precision and nearly matched RGB accuracy.
-
-5\. Frequency-domain features are useful as complementary evidence but require careful fusion.
-
-
-
-\---
-
-
-
-\## Project Conclusion
-
-
+## Project Conclusion
 
 The experiments show that spatial RGB features are the strongest standalone representation for this dataset. However, structured frequency-domain features, especially radial energy distribution, provide complementary information and improve precision.
 
-
-
 The final conclusion is that AI-generated image detection benefits from analyzing both spatial and frequency-domain cues, but frequency features should be carefully designed and fused rather than used alone.
 
+---
 
-
-\---
-
-
-
-\## Repository Structure
-
-
+## Repository Structure
 
 ```text
-
 notebooks/       Jupyter/Kaggle notebooks
-
 results/         CSV results, figures, and analysis outputs
-
 report/          Final report files
-
 presentation/    Final presentation slides
-
 papers/          Paper citation notes
-
 models/          Model checkpoint notes
-
 docs/            Proposal and notebook PDF exports
-
 ```
 
+---
 
-
-\---
-
-
-
-\## How to Run
-
-
+## How to Run
 
 Install dependencies:
 
-
-
 ```bash
-
 pip install -r requirements.txt
-
 ```
-
-
 
 Run notebooks in order from `01` to `07`.
 
-
-
 The dataset should be added through Kaggle input before running the notebooks.
 
+---
 
-
-\---
-
-
-
-\## Note on Model Files
-
-
+## Note on Model Files
 
 Large model checkpoint files (`.pth`) are not included in the GitHub repository. They can be regenerated by running the training notebooks.
-
